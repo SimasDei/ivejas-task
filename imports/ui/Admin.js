@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import { Accounts } from 'meteor/accounts-base';
 
 export class Admin extends Component {
-  handleLogout = () => this.props.history.push('/');
+  handleLogout = () => {
+    Accounts.logout();
+    this.props.history.push('/');
+  };
   render() {
     return (
       <div>
