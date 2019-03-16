@@ -1,26 +1,28 @@
 import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
-import SimpleSchema from 'simpl-schema';
-
-const productsSchema = new SimpleSchema({
-  name: {
-    type: String
-  },
-  description: {
-    type: String
-  },
-  price: {
-    type: Number
-  },
-  count: {
-    type: Number
-  }
-});
 
 export const Products = new Mongo.Collection('products');
 
 if (Meteor.isServer) {
-  Meteor.publish('products', () => {
-    return Products.find();
+  Meteor.publish('products', function() {
+    return Products.find({ userId: this.userId });
   });
 }
+
+/**
+ * @method - Add Product
+ */
+Meteor.methods({
+  'products.insert'(title) {
+    if (!this.userId) {
+      throw new Meteor.Error('No.', 'Not allowed!');
+    }
+    if (title.length <= 0) {
+      throw new Meteor.Error('Nope', 'There must be an Input');
+    }
+    Products.insert({
+      title,
+      userId: this.userId
+    });
+  }
+});

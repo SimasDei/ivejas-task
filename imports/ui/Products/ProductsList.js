@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Tracker } from 'meteor/tracker';
 
-import { Products } from '../api/products';
+import { Products } from '../../api/products';
 
 export class ProductsList extends Component {
   constructor(props) {
@@ -24,14 +24,18 @@ export class ProductsList extends Component {
 
   renderProductList = () => {
     const { products } = this.state;
-    return products.map(product => <p key={product._id}>{product.title}</p>);
+    return products.map(product => (
+      <li key={product._id}>
+        <p>{product.title}</p>
+      </li>
+    ));
   };
 
   render() {
     return (
       <div>
-        <p>Product List</p>
-        <div>{this.renderProductList()}</div>
+        <h4>Product List</h4>
+        <ul>{this.renderProductList()}</ul>
       </div>
     );
   }

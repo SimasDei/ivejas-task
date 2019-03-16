@@ -4,12 +4,12 @@ import { Route, BrowserRouter, Switch } from 'react-router-dom';
 /**
  * @components
  */
-import Signup from '../ui/Signup';
-import Login from '../ui/Login';
-import Admin from '../ui/Admin';
-import Clients from '../ui/Clients';
-import Orders from '../ui/Orders';
-import Products from '../ui/Products';
+import Signup from '../ui/Admin/Signup';
+import Login from '../ui/Admin/Login';
+import Admin from '../ui/Admin/Admin';
+import Clients from '../ui/Clients/Clients';
+import Orders from '../ui/Orders/Orders';
+import Products from '../ui/Products/Products';
 
 /**
  * @routes
