@@ -1,22 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Products } from '../../api/products';
 
 import AdminHeader from './AdminHeader';
 import AddProduct from '../Products/AddProduct';
 import ProductList from '../Products/ProductsList';
 
-export class Admin extends Component {
-  render() {
-    return (
-      <div>
-        <AdminHeader />
+const Admin = () => {
+  return (
+    <div>
+      <AdminHeader />
 
-        <AddProduct />
+      <AddProduct />
 
-        <ProductList />
-      </div>
-    );
-  }
-}
+      <ProductList />
+    </div>
+  );
+};
 
 export default Admin;

@@ -10,19 +10,24 @@ if (Meteor.isServer) {
 }
 
 /**
- * @method - Add Product
+ * @methods - Add and Delete Products
  */
 Meteor.methods({
-  'products.insert'(title) {
+  'products.insert'(title, description) {
     if (!this.userId) {
       throw new Meteor.Error('No.', 'Not allowed!');
     }
-    if (title.length <= 0) {
+    if (title.length <= 0 || description.length <= 0) {
       throw new Meteor.Error('Nope', 'There must be an Input');
     }
     Products.insert({
       title,
-      userId: this.userId
+      userId: this.userId,
+      description,
+      count: 1
     });
+  },
+  'products.delete'(productId) {
+    Products.remove(productId);
   }
 });

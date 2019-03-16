@@ -4,6 +4,8 @@ import { Tracker } from 'meteor/tracker';
 
 import { Products } from '../../api/products';
 
+import ProductItem from './ProductItem';
+
 export class ProductsList extends Component {
   constructor(props) {
     super(props);
@@ -26,7 +28,7 @@ export class ProductsList extends Component {
     const { products } = this.state;
     return products.map(product => (
       <li key={product._id}>
-        <p>{product.title}</p>
+        <ProductItem product={product} />
       </li>
     ));
   };

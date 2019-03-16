@@ -1,20 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Accounts } from 'meteor/accounts-base';
+import { withRouter } from 'react-router-dom';
 
-export class AdminHeader extends Component {
-  handleLogout = () => {
-    Accounts.logout();
-    this.props.history.push('/');
-  };
+const AdminHeader = props => {
+  return (
+    <div>
+      <h3>Admin Panel</h3>
+      <button
+        onClick={() => {
+          Accounts.logout();
+          props.history.push('/');
+        }}
+      >
+        Logout
+      </button>
+    </div>
+  );
+};
 
-  render() {
-    return (
-      <div>
-        <h3>Admin Panel</h3>
-        <button onClick={this.handleLogout}>Logout</button>
-      </div>
-    );
-  }
-}
-
-export default AdminHeader;
+export default withRouter(AdminHeader);
