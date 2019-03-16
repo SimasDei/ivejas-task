@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 
 export class Login extends Component {
@@ -18,9 +18,7 @@ export class Login extends Component {
     Meteor.loginWithPassword({ email }, password, err => {
       if (err) {
         this.setState({ error: err.reason });
-      } else {
-        this.props.history.replace('/admin');
-      }
+      } else this.props.history.push('/admin');
     });
   };
 
@@ -48,4 +46,4 @@ export class Login extends Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);

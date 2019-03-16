@@ -9,6 +9,7 @@ Accounts.validateNewUser(user => {
     new SimpleSchema({
       email: {
         type: String,
+        min: 1,
         regEx: SimpleSchema.RegEx.Email
       }
     }).validate({ email });

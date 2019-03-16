@@ -1,7 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
-
 /**
  * @components
  */
@@ -16,14 +15,21 @@ import Products from '../ui/Products';
  * @routes
  */
 export const routes = (
-  <BrowserRouter>
+  <BrowserRouter forceRefresh={true}>
     <Switch>
-      <Route path="/" exact component={Login} />
-      <Route path="/signup" component={Signup} />
-      <Route path="/admin" component={Admin} />
-      <Route path="/orders" component={Orders} />
-      <Route path="/clients" component={Clients} />
-      <Route path="/products" component={Products} />
+      {Meteor.userId() ? (
+        <React.Fragment>
+          <Route path="/admin" component={Admin} />
+          <Route path="/orders" component={Orders} />
+          <Route path="/clients" component={Clients} />
+          <Route path="/products" component={Products} />
+        </React.Fragment>
+      ) : (
+        <React.Fragment>
+          <Route path="/" exact component={Login} />
+          <Route path="/signup" component={Signup} />
+        </React.Fragment>
+      )}
     </Switch>
   </BrowserRouter>
 );
