@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
 import { Meteor } from 'meteor/meteor';
 
 export class Login extends Component {
@@ -10,7 +9,6 @@ export class Login extends Component {
       error: ''
     };
   }
-
   handleSubmit = e => {
     e.preventDefault();
     let { email, password } = this.refs;
@@ -18,7 +16,11 @@ export class Login extends Component {
     password = password.value.trim();
 
     Meteor.loginWithPassword({ email }, password, err => {
-      err ? this.setState({ error: err.reason }) : null;
+      if (err) {
+        this.setState({ error: err.reason });
+      } else {
+        this.props.history.replace('/admin');
+      }
     });
   };
 

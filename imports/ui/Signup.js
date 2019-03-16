@@ -17,8 +17,14 @@ class Signup extends Component {
     email = email.value.trim();
     password = password.value.trim();
 
+    if (password.length < 4) {
+      return this.setState({ error: 'Password Too Short min 4 characters' });
+    }
+
     Accounts.createUser({ email, password }, err => {
-      err ? this.setState({ error: err.reason }) : null;
+      err
+        ? this.setState({ error: err.reason })
+        : this.props.history.push('/admin');
     });
   };
 
@@ -27,7 +33,7 @@ class Signup extends Component {
       <div>
         <p>SignUp</p>
         {this.state.error ? <p>{this.state.error}</p> : null}
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} noValidate>
           <input ref="email" type="email" name="email" placeholder="Email" />
           <input
             ref="password"
