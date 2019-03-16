@@ -24,23 +24,25 @@ export class Login extends Component {
 
   render() {
     return (
-      <div>
-        <p>Login Component</p>
-        {this.state.error ? <p>{this.state.error}</p> : null}
+      <div className="boxed-view">
+        <div className="boxed-view__box">
+          <h1>Login</h1>
+          {this.state.error ? <p>{this.state.error}</p> : null}
 
-        <form onSubmit={this.handleSubmit}>
-          <input ref="email" type="email" name="email" placeholder="Email" />
-          <input
-            ref="password"
-            type="password"
-            name="password"
-            placeholder="Password"
-          />
-          <button>Login</button>
-        </form>
-        <p>
-          No Account ? <Link to="/signup">Signup</Link>
-        </p>
+          <form className="boxed-view__form" onSubmit={this.handleSubmit}>
+            <input ref="email" type="email" name="email" placeholder="Email" />
+            <input
+              ref="password"
+              type="password"
+              name="password"
+              placeholder="Password"
+            />
+            <button>Login</button>
+          </form>
+          <p>
+            No Account ? <Link to="/signup">Signup</Link>
+          </p>
+        </div>
       </div>
     );
   }
