@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import { Accounts } from 'meteor/accounts-base';
+import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 
 const productsSchema = new SimpleSchema({
@@ -16,3 +16,11 @@ const productsSchema = new SimpleSchema({
     type: Number
   }
 });
+
+export const Products = new Mongo.Collection('products');
+
+if (Meteor.isServer) {
+  Meteor.publish('products', () => {
+    return Products.find();
+  });
+}
