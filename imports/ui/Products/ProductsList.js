@@ -33,7 +33,7 @@ export class ProductsList extends Component {
 
   render() {
     return (
-      <div>
+      <div className="product-list">
         <h4 className="item__header">Product List</h4>
         <div>{this.renderProductList()}</div>
       </div>
