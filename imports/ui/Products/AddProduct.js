@@ -14,15 +14,15 @@ export class AddProduct extends Component {
   };
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleAddProduct}>
+      <div className="product-form">
+        <form className="product-form__form" onSubmit={this.handleAddProduct}>
           <input type="text" ref="title" placeholder="Product Title" />
           <input
             type="text"
             ref="description"
             placeholder="Product Description"
           />
-          <button>Add Product</button>
+          <button className="button">Add Product</button>
         </form>
       </div>
     );

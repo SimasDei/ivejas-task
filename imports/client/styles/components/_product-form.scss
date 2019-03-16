@@ -1,0 +1,17 @@
+.product-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35rem;
+  max-width: 80%;
+  margin: 0 auto 5rem auto;
+  padding: $space;
+  background: $light-grey;
+  box-sizing: content-box;
+  border-radius: 0.5rem;
+}
+
+.product-form__form {
+  display: flex;
+  flex-direction: column;
+}

@@ -4,16 +4,19 @@ import { withRouter } from 'react-router-dom';
 
 const AdminHeader = props => {
   return (
-    <div>
-      <h3>Admin Panel</h3>
-      <button
-        onClick={() => {
-          Accounts.logout();
-          props.history.push('/');
-        }}
-      >
-        Logout
-      </button>
+    <div className="header">
+      <div className="header_content">
+        <h3 className="header__title">Admin Panel</h3>
+        <button
+          className="button button--nav-link"
+          onClick={() => {
+            Accounts.logout();
+            props.history.push('/');
+          }}
+        >
+          Logout
+        </button>
+      </div>
     </div>
   );
 };

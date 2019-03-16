@@ -24,10 +24,13 @@ Meteor.methods({
       title,
       userId: this.userId,
       description,
-      count: 1
+      storage: 0
     });
   },
   'products.delete'(productId) {
     Products.remove(productId);
+  },
+  'products.storageAdd'(productId, count) {
+    Products.update({ _id: productId }, { $set: { storage: count++ } });
   }
 });

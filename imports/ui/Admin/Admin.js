@@ -7,12 +7,13 @@ import ProductList from '../Products/ProductsList';
 
 const Admin = () => {
   return (
-    <div>
+    <div className="main-container">
       <AdminHeader />
+      <div className="wrapper">
+        <AddProduct />
 
-      <AddProduct />
-
-      <ProductList />
+        <ProductList />
+      </div>
     </div>
   );
 };

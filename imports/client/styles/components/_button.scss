@@ -1,0 +1,29 @@
+.button {
+  background-color: $button-bg;
+  border: none;
+  color: $button-color;
+  cursor: pointer;
+  padding: $input-spacing;
+  text-transform: uppercase;
+  margin-bottom: $space;
+  line-height: 1.2;
+}
+
+.button--link {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.button--delete {
+  background-color: transparent;
+  border: 1px solid $button-bg;
+  color: $blue;
+  font-weight: 600;
+}
+
+.button--nav-link {
+  background: none;
+  padding: 0;
+  margin: 0;
+  text-decoration: underline;
+}

@@ -15,6 +15,13 @@ body {
 
 h1 {
   font-weight: 200;
+  margin-bottom: $space;
+}
+h3 {
+  font-size: 1.8rem;
+  font-weight: 200;
+  letter-spacing: 3px;
+  margin-bottom: $space;
 }
 
 a {
@@ -27,5 +34,10 @@ input[type='password'] {
   border: 1px solid #333;
   font-size: 1.6rem;
   margin-bottom: 1.5rem;
-  padding: 1rem;
+  padding: $input-spacing;
+}
+
+.wrapper {
+  width: 80%;
+  margin: 0 auto;
 }

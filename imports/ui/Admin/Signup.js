@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 import { Accounts } from 'meteor/accounts-base';
 
@@ -46,7 +46,7 @@ class Signup extends Component {
               name="password"
               placeholder="Password"
             />
-            <button>Sign Up</button>
+            <button className="button">Sign Up</button>
           </form>
           <p>
             Have an Account ? <Link to="/">Login</Link>
@@ -57,4 +57,4 @@ class Signup extends Component {
   }
 }
 
-export default Signup;
+export default withRouter(Signup);

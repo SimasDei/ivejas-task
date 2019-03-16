@@ -27,17 +27,15 @@ export class ProductsList extends Component {
   renderProductList = () => {
     const { products } = this.state;
     return products.map(product => (
-      <li key={product._id}>
-        <ProductItem product={product} />
-      </li>
+      <ProductItem key={product._id} product={product} />
     ));
   };
 
   render() {
     return (
       <div>
-        <h4>Product List</h4>
-        <ul>{this.renderProductList()}</ul>
+        <h4 className="item__header">Product List</h4>
+        <div>{this.renderProductList()}</div>
       </div>
     );
   }

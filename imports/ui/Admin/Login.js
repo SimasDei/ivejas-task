@@ -37,7 +37,7 @@ export class Login extends Component {
               name="password"
               placeholder="Password"
             />
-            <button>Login</button>
+            <button className="button">Login</button>
           </form>
           <p>
             No Account ? <Link to="/signup">Signup</Link>

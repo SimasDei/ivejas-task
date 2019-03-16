@@ -8,6 +8,8 @@
 }
 
 .boxed-view__box {
+  border-radius: 0.5rem;
+
   background-color: $boxed-view-box-bg;
   padding: 2.5rem;
   text-align: center;

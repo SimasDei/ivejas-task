@@ -1,5 +1,7 @@
 // Colors
 $dark-grey: #333;
+$blue: #3681f0;
+$light-grey: #ccc;
 
 // Spacing
 $space: 1.5rem;
@@ -9,3 +11,12 @@ $boxed-view-background: #333;
 $boxed-view-box-bg: #ccc;
 
 // Typography, Inputs
+$input-spacing: 1rem;
+
+// Buttons
+$button-bg: #3681f0;
+$button-color: #fff;
+
+// Item - Client, Product, Orders
+$item-bg: $light-grey;
+$item-border: darken($light-grey, 15%);
