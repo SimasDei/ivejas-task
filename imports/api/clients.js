@@ -1,5 +1,7 @@
 import { Meteor } from 'meteor/meteor';
-import { Clients } from './collections';
+import { Mongo } from 'meteor/mongo';
+
+export const Clients = new Mongo.Collection('clients');
 
 if (Meteor.isServer) {
   Meteor.publish('clients', function() {
@@ -24,6 +26,6 @@ Meteor.methods({
     });
   },
   'clients.delete'(clientId) {
-    Products.remove(clientId);
+    Clients.remove(clientId);
   }
 });

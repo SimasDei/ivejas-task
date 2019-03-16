@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Tracker } from 'meteor/tracker';
 
-import { Clients } from '../../api/collections';
+import { Clients } from '../../api/clients';
 
 import ClientItem from './ClientItem';
 

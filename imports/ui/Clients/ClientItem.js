@@ -14,7 +14,7 @@ export class ClientItem extends Component {
     const { client } = this.props;
     return (
       <div className="item">
-        <h3>{client.title}</h3>
+        <h3>{client.name}</h3>
         <p className="item__paragraph">{client.description}</p>
 
         <button
