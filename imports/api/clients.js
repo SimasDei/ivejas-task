@@ -28,5 +28,26 @@ Meteor.methods({
   },
   'clients.delete'(clientId) {
     Clients.remove(clientId);
+  },
+  'clients.addOrder'(product, clientId) {
+    if (!product) {
+      throw new Meteor.Error('Please select a Product');
+    }
+    if (product.storage <= 0) {
+      throw new Meteor.Error('No more Products');
+    }
+    Clients.update(
+      { _id: clientId },
+      {
+        $push: {
+          orders: {
+            id: new Mongo.ObjectID()._str,
+            productId: product._id,
+            title: product.title,
+            count: 1
+          }
+        }
+      }
+    );
   }
 });
