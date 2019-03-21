@@ -101,7 +101,6 @@ export class ClientItem extends Component {
       Meteor.call('products.storageDelete', product._id, product.storage);
       Meteor.call('clients.addOrder', product, this.props.client._id);
     }
-    console.log(this.props.client);
   };
 
   render() {
