@@ -37,12 +37,24 @@ export class ClientItem extends Component {
     Meteor.call('clients.delete', this.props.client._id);
   };
 
+  handleOrderDelete = (clientId, orderId) => {
+    Meteor.call('clients.orderDelete', clientId, orderId);
+  };
+
   handleOrderList = () => {
     const { orders } = this.state;
     console.log(orders);
     return orders.map(order => (
-      <li key={order.id}>
+      <li key={order.id} className="orderItem">
         <p>{order.title}</p>
+        <span
+          className="orderDelete"
+          onClick={() =>
+            this.handleOrderDelete(this.props.client._id, order.id)
+          }
+        >
+          ❌
+        </span>
       </li>
     ));
   };
@@ -101,7 +113,7 @@ export class ClientItem extends Component {
         <h4>Order</h4>
         {this.handleProductList()}
         <h3>Order List</h3>
-        <ul>{this.handleOrderList()}</ul>
+        <ul className="orderList">{this.handleOrderList()}</ul>
         <button
           className="button button--delete"
           onClick={this.handleClientDelete}

@@ -49,5 +49,18 @@ Meteor.methods({
         }
       }
     );
+  },
+  'clients.orderDelete'(clientId, orderId) {
+    Clients.update(
+      { _id: clientId },
+      {
+        $pull: {
+          orders: {
+            id: orderId
+          }
+        }
+      },
+      { multi: true }
+    );
   }
 });

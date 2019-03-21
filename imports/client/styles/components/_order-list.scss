@@ -1,0 +1,23 @@
+.orderList {
+  display: flex;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  padding: $space;
+  justify-content: center;
+  width: 100%;
+}
+
+.orderItem {
+  margin: 0.5rem;
+  list-style: none;
+  padding: $space;
+  background-color: #333;
+  color: #fff;
+  border-radius: 0.5rem;
+}
+
+.orderDelete {
+  display: block;
+  text-align: center;
+  cursor: pointer;
+}
