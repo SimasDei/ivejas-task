@@ -11,6 +11,10 @@ import Clients from '../ui/Clients/Clients';
 import Orders from '../ui/Orders/Orders';
 import Products from '../ui/Products/Products';
 
+Tracker.autorun(() => {
+  Meteor.userId();
+});
+
 /**
  * @routes
  */
@@ -19,6 +23,7 @@ export const routes = (
     <Switch>
       {Meteor.userId() ? (
         <React.Fragment>
+          <Route exact path="/" component={Admin} />
           <Route path="/admin" component={Admin} />
           <Route path="/orders" component={Orders} />
           <Route path="/clients" component={Clients} />

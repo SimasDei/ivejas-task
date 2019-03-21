@@ -31,6 +31,14 @@ Meteor.methods({
     Products.remove(productId);
   },
   'products.storageAdd'(productId, count) {
-    Products.update({ _id: productId }, { $set: { storage: count++ } });
+    let newCount = count + 1;
+    Products.update({ _id: productId }, { $set: { storage: newCount } });
+  },
+  'products.storageDelete'(productId, count) {
+    let newCount = count - 1;
+    if (newCount < 0) {
+      return;
+    }
+    Products.update({ _id: productId }, { $set: { storage: newCount } });
   }
 });

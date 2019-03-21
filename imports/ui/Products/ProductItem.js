@@ -11,11 +11,13 @@ export class ProductItem extends Component {
   };
 
   handleStorage = () => {
-    Meteor.call(
-      'products.storageAdd',
-      this.props.product._id,
-      this.props.product.storage
-    );
+    const { product } = this.props;
+    Meteor.call('products.storageAdd', product._id, product.storage);
+  };
+
+  handleStorageDelete = () => {
+    const { product } = this.props;
+    Meteor.call('products.storageDelete', product._id, product.storage);
   };
 
   render() {
@@ -37,6 +39,13 @@ export class ProductItem extends Component {
           onClick={this.handleStorage}
         >
           Add One
+        </button>
+        <button
+          className="button button--delete"
+          style={{ marginLeft: '1rem' }}
+          onClick={this.handleStorageDelete}
+        >
+          Remove One
         </button>
       </div>
     );

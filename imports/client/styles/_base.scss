@@ -37,6 +37,16 @@ input[type='password'] {
   padding: $input-spacing;
 }
 
+select {
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  border: 1px solid #333;
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  padding: $input-spacing;
+}
+
 .wrapper {
   width: 80%;
   margin: 0 auto;
